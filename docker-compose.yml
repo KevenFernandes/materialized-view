@@ -1,0 +1,12 @@
+services:
+  database:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: mercadinho
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+    ports:
+      - '5433:5432'
+    volumes:
+      - ./docker/initial-scripts:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/postgresql/data
